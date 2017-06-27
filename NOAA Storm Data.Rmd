@@ -1,5 +1,5 @@
 # Synopsis:
-## Storms and other severe weather events can cause both public health and economic problems for communities and municipalities. Many severe events can result in fatalities, injuries, and property damage, and preventing such outcomes to the extent possible is a key concern. Data for this case is taken from National Weather Service Instruction. This is the data between 1950 and 2011. 
+###### Storms and other severe weather events can cause both public health and economic problems for communities and municipalities. Many severe events can result in fatalities, injuries, and property damage, and preventing such outcomes to the extent possible is a key concern. Data for this case is taken from National Weather Service Instruction. This is the data between 1950 and 2011. 
 
 
 # Data Processing 
@@ -12,7 +12,7 @@ nmissing <- function(x) sum(is.na(x))
 colwise(nmissing)(data)
 ```
 
-## Tranfer the EVTYPE< PROPDMGEXP and CROPDMGEXP for aggregation. Sum the FATALITIES and INJURIES and calculate the Property damage and Real crop damage. Then Merge both of them.
+###### Tranfer the EVTYPE< PROPDMGEXP and CROPDMGEXP for aggregation. Sum the FATALITIES and INJURIES and calculate the Property damage and Real crop damage. Then Merge both of them.
 ```
 data_Transfer <- mutate(data, EVTYPE = toupper(EVTYPE), PROPDMGEXP = toupper(PROPDMGEXP), CROPDMGEXP = toupper(CROPDMGEXP), BGN_DATE = as.POSIXlt(data$BGN_DATE, format="%m/%d/%Y %H:%M:%S"))
 
